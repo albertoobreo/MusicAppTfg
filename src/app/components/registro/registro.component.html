@@ -1,0 +1,85 @@
+<div class="limiter animated fadeInRight">
+    <div class="container-login100">
+        <div class="wrap-login100 p-t-50 p-b-90">
+            <!-- ahora para coger el formulario uso el ngSubmit y un nombre de la funcion definida en el ts -->
+            <form (ngSubmit)="onSubmit(registroForm)" #registroForm="ngForm" class="login100-form validate-form flex-sb flex-w">
+                <span class="login100-form-title p-b-51"> Crear nueva cuenta </span>
+
+                <span *ngIf="
+            registroForm.submitted && registroForm.controls['email'].errors
+          " class="text-danger animated fadeIn">El correo es obligatorio</span
+        >
+        <div class="wrap-input100 m-b-16 m-2">
+          <input
+            class="input100"
+            type="email"
+            name="email"
+            [(ngModel)]="usuario.email"
+            required
+            email
+            placeholder="Email"
+          />
+
+          <span class="focus-input100"></span>
+        </div>
+
+        <span *ngIf="
+          registroForm.submitted && registroForm.controls['nombre'].errors
+        " class="text-danger animated fadeIn">El nombre es obligatorio</span
+      >
+        <div class="wrap-input100 m-b-16 m-2">
+          <input
+            class="input100"
+            type="text"
+            name="nombre"
+            [(ngModel)]="usuario.nombre"
+            required
+            minlength="2"
+            placeholder="Nombre y apellidos"
+          />
+
+          <span class="focus-input100"></span>
+    </div>
+
+    <span *ngIf="
+          registroForm.submitted && registroForm.controls['password'].errors
+        " class="text-danger animated fadeIn">Introduce al menos 6 letras</span
+      >
+        <div
+          class="wrap-input100 m-b-16 m-2"
+          
+        >
+          <input
+            class="input100"
+            type="password"
+            name="password"
+            [(ngModel)]="usuario.password"
+            required
+            minlength="6"
+            placeholder="Password"
+          />
+          <span class="focus-input100"></span>
+</div>
+
+<div class="flex-sb-m w-full p-t-3 p-b-24 m-2">
+    <div class="contact100-form-checkbox">
+        <input class="input-checkbox100" id="ckb1" type="checkbox" name="remember-me" />
+        <label class="label-checkbox100" for="ckb1">
+              Recordar mi usuario
+            </label>
+    </div>
+</div>
+
+<div class="container-login100-form-btn m-t-17 m-3">
+    <button class="login100-form-btn" type="submit">Crear cuenta</button>
+</div>
+
+<div>
+    <a routerLink="/login" class="txt1 m-2">
+            ¿Ya tienes cuenta? / Ingresar
+          </a>
+</div>
+</form>
+</div>
+</div>
+</div>
